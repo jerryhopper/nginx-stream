@@ -1,8 +1,9 @@
 
-ARG DEBIAN_FLAVOR=bookworm
-ARG NGINX_VERSION=1.29.1
 
-ENV NGINX_VERSION=${NGINX_VERSION}
+ARG DEBIAN_FLAVOR=bookworm
+ENV NGINX_VERSION=1.29.1
+
+ARG DOCKER_NGINX_VERSION=${NGINX_VERSION}
 
 
 FROM debian:${DEBIAN_FLAVOR}-slim AS builder
@@ -27,6 +28,6 @@ RUN cd /tmp/nginx-${NGINX_VERSION} &&  ./configure --with-compat --with-http_ssl
     make && make install
 
 
-FROM nginx:${NGINX_VERSION}-${DEBIAN_FLAVOR}
+FROM nginx:${DOCKER_NGINX_VERSION}-${DEBIAN_FLAVOR}
 
 COPY --from=builder /usr/local/nginx /usr/local/nginx
