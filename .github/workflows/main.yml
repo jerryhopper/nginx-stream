@@ -29,7 +29,7 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           push: true
-          tags: jerryhopper/nginx-stream:1.29.1
+          tags: jerryhopper/nginx-stream:$DOCKER_NGINX_VERSION
           build-args: |
-             DOCKER_NGINX_VERSION=${{ DOCKER_NGINX_VERSION }}
-             DOCKER_DEBIAN_FLAVOR=${{ DOCKER_DEBIAN_FLAVOR }}
+             DOCKER_NGINX_VERSION=$DOCKER_NGINX_VERSION
+             DOCKER_DEBIAN_FLAVOR=$DOCKER_DEBIAN_FLAVOR
