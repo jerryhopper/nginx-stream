@@ -1,12 +1,12 @@
 
-ENV NGINX_VERSION 1.29.1
-ARG DEBIAN_FLAVOR=bookworm
-
-
+ARG DOCKER_DEBIAN_FLAVOR=bookworm
 ARG DOCKER_NGINX_VERSION=${NGINX_VERSION}
 
 
-FROM debian:${DEBIAN_FLAVOR}-slim AS builder
+FROM debian:${DOCKER_DEBIAN_FLAVOR}-slim AS builder
+
+ENV NGINX_VERSION ${DOCKER_NGINX_VERSION}
+
 
 RUN apt update && \
     apt install -y \
