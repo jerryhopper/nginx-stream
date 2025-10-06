@@ -22,6 +22,6 @@ RUN cd /tmp/nginx-${NGINX_VERSION} &&  ./configure --with-compat --with-http_ssl
     make && make install
 
 
-FROM nginx:1.29.1
+FROM nginx:${NGINX_VERSION}
 
 COPY --from=builder /usr/local/nginx /usr/local/nginx
