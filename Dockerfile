@@ -20,10 +20,7 @@ RUN curl http://nginx.org/download/nginx-${DOCKER_NGINX_VERSION}.tar.gz -o /tmp/
     cd /tmp && \
     tar xvzf nginx-${DOCKER_NGINX_VERSION}.tar.gz
 
-RUN cd /tmp/nginx-${DOCKER_NGINX_VERSION} && \
-    ls -latr
 
-RUN ls -latr
 RUN cd /tmp/nginx-${DOCKER_NGINX_VERSION} &&  ./configure --with-compat --with-http_ssl_module --with-ipv6 --with-threads --with-stream --with-stream_ssl_module && \
     make && make install
 
