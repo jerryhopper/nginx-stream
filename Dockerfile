@@ -1,6 +1,9 @@
 FROM debian:bookworm-slim AS builder
 
-ENV NGINX_VERSION 1.29.1
+
+
+ARG NGINX_VERSION=1.29.1
+
 
 RUN apt update && \
     apt install -y \
