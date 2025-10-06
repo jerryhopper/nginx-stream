@@ -28,5 +28,7 @@ RUN cd /tmp/nginx-${NGINX_VERSION} &&  ./configure --with-compat --with-http_ssl
 
 
 FROM nginx:${DOCKER_NGINX_VERSION}-${DOCKER_DEBIAN_FLAVOR} AS build
-
+RUN apt update && \
+    apt-get upgrade -y 
+    
 COPY --from=builder /usr/local/nginx /usr/local/nginx
