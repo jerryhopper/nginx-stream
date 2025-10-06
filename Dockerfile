@@ -2,7 +2,7 @@
 
 FROM debian:${DOCKER_DEBIAN_FLAVOR}-slim AS builder
 
-ENV NGINX_VERSION=${DOCKER_NGINX_VERSION}
+ENV NGINX_VERSION=1.29.1
 
 
 RUN apt update && \
