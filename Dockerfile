@@ -10,6 +10,7 @@ ENV NGINX_VERSION=${DOCKER_NGINX_VERSION}
 
 
 RUN apt update && \
+    apt-get upgrade -y && \
     apt install -y \
     build-essential \
     libssl-dev \
