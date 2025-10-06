@@ -1,9 +1,9 @@
-FROM debian:bookworm-slim AS builder
 
-
-
+ARG DEBIAN_FLAVOR=bookworm
 ARG NGINX_VERSION=1.29.1
 
+
+FROM debian:${DEBIAN_FLAVOR}-slim AS builder
 
 RUN apt update && \
     apt install -y \
@@ -25,6 +25,6 @@ RUN cd /tmp/nginx-${NGINX_VERSION} &&  ./configure --with-compat --with-http_ssl
     make && make install
 
 
-FROM nginx:${NGINX_VERSION}
+FROM nginx:${DEBIAN_FLAVOR}-${NGINX_VERSION}
 
 COPY --from=builder /usr/local/nginx /usr/local/nginx
