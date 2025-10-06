@@ -1,5 +1,10 @@
 name: ci
 
+env:
+  DOCKER_NGINX_VERSION: 1.29.1
+  DOCKER_DEBIAN_FLAVOR: bookworm
+  
+
 on:
   push:
 
@@ -25,3 +30,6 @@ jobs:
         with:
           push: true
           tags: jerryhopper/nginx-stream:1.29.1
+          build-args: |
+             DOCKER_NGINX_VERSION=${{ DOCKER_NGINX_VERSION }}
+             DOCKER_DEBIAN_FLAVOR=${{ DOCKER_DEBIAN_FLAVOR }}
