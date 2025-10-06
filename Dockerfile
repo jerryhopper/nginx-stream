@@ -25,6 +25,6 @@ RUN cd /tmp/nginx-${NGINX_VERSION} &&  ./configure --with-compat --with-http_ssl
     make && make install
 
 
-FROM nginx:${DEBIAN_FLAVOR}-${NGINX_VERSION}
+FROM nginx:${NGINX_VERSION}-${DEBIAN_FLAVOR}
 
 COPY --from=builder /usr/local/nginx /usr/local/nginx
