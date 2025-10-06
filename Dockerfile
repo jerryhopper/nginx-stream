@@ -28,6 +28,6 @@ RUN cd /tmp/nginx-${NGINX_VERSION} &&  ./configure --with-compat --with-http_ssl
     make && make install
 
 
-FROM nginx:${DOCKER_NGINX_VERSION}-${DEBIAN_FLAVOR} AS build
+FROM nginx:${DOCKER_NGINX_VERSION}-${DOCKER_DEBIAN_FLAVOR} AS build
 
 COPY --from=builder /usr/local/nginx /usr/local/nginx
